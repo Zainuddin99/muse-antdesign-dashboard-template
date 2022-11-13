@@ -1,0 +1,36 @@
+@mixin hide-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+//Default 1
+@mixin limit-para($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line; /* number of lines to show */
+  line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+@mixin position-center($type: absolute) {
+  position: $type;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin heading($position: center, $marginBottom: 20px) {
+  font-size: 30px;
+  display: flex;
+  justify-content: $position;
+  margin-bottom: $marginBottom;
+}

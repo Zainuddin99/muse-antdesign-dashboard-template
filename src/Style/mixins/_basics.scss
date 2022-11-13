@@ -1,0 +1,82 @@
+$primary-color: rgb(102, 69, 156);
+$header-height: 64.22px;
+
+//Return light version of primary color using value provided
+@function lighten-primary($value: 0) {
+    $value: lighten(
+        $color: $primary-color,
+        $amount: $value,
+    );
+    @return $value;
+}
+
+//Return light version of primary color using value provided
+@function darken-primary($value: 0) {
+    $value: darken(
+        $color: $primary-color,
+        $amount: $value,
+    );
+    @return $value;
+}
+
+%full-dimension {
+    height: 100%;
+    width: 100%;
+}
+
+//Mixin for media query with different breakpoints
+@mixin media-query($breakpoint) {
+    //the name of the mixin is media-query
+
+    //Widths
+    @if $breakpoint == l {
+        @media only screen and (max-width: 1150px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == m {
+        @media only screen and (max-width: 680px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == s {
+        @media only screen and (max-width: 481px) {
+            @content;
+        }
+    }
+
+    //Height....Breakspoint should start with 'h'
+    @if $breakpoint == hl {
+        @media only screen and (max-height: 912px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == hlm {
+        @media only screen and (max-height: 812px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == hm {
+        @media only screen and (max-height: 680px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == hs {
+        @media only screen and (max-height: 481px) {
+            @content;
+        }
+    }
+}
+
+//To create manual media query
+//Width
+@mixin new-media-query($value) {
+    @media only screen and (max-width: $value) {
+        @content;
+    }
+}
